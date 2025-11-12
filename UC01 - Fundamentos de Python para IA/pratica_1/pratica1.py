@@ -1,7 +1,6 @@
 # Sistema de Recomendação de Viagens
 
 def coletar_preferencias():
-    """Solicita as preferências do usuário com validação de entrada."""
     print("=== Sistema de Recomendação de Viagens ===")
 
     while True:
@@ -30,7 +29,6 @@ def coletar_preferencias():
     return clima, ambiente, orcamento
 
 def recomendar_destino(clima, ambiente, orcamento, destinos):
-    """Compara as preferências do usuário com os destinos cadastrados e retorna o mais adequado."""
     recomendacoes = []
 
     for destino in destinos:
@@ -46,7 +44,6 @@ def recomendar_destino(clima, ambiente, orcamento, destinos):
     return recomendacoes[0]
 
 def exibir_recomendacao(destino):
-    """Mostra o destino recomendado com uma justificativa simples."""
     print("\n=== Recomendação de Viagem ===")
     print(f"Destino sugerido: {destino['nome']}")
     print(f"Clima: {destino['clima'].capitalize()} | Ambiente: {destino['ambiente'].capitalize()}")
@@ -139,7 +136,7 @@ def main():
 
         continuar = input("\nDeseja buscar outro destino? (s/n): ").strip().lower()
         if continuar != "s":
-            print("\nObrigado por usar o sistema de recomendação de viagens!")
+            print("\n Obrigado por usar o sistema de recomendação de viagens!")
             break
 
 if __name__ == "__main__":
