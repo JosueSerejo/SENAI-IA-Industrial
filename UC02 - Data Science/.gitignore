@@ -1,0 +1,8 @@
+.venv/
+env/
+venv/
+*.arff
+*.dat
+__pycache__/
+.vscode/
+.ipynb_checkpoints
