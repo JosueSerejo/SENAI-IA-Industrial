@@ -4,13 +4,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from xgboost import XGBClassifier
 
-print(">>> Carregando dataset...")
+print("Carregando dataset...")
 try:
     df = pd.read_csv('flights_delays_120.csv')
     print("Dataset carregado com sucesso!")
 except FileNotFoundError:
     print("ERRO: O arquivo 'flights_delays_120.csv' não foi encontrado.")
-    print("Certifique-se de que ele está na mesma pasta deste script.")
     exit()
 
 print("\n--- Dimensões do Dataset (Linhas, Colunas) ---")
@@ -23,7 +22,7 @@ print("\n--- Primeiras 5 linhas ---")
 print(df.head())
 
 
-print("\n>>> Preparando os dados...")
+print("\nPreparando os dados...")
 
 X = df.drop('delayed', axis=1)
 y = df['delayed']
@@ -45,7 +44,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 print(f"Tamanho do Treino: {X_train.shape}")
 print(f"Tamanho do Teste: {X_test.shape}")
 
-print("\n>>> Iniciando treinamento do XGBoost...")
+print("\nIniciando treinamento do XGBoost...")
 
 model = XGBClassifier(use_label_encoder=False, eval_metric='logloss')
 
@@ -53,7 +52,7 @@ model.fit(X_train, y_train)
 
 print("Treinamento concluído.")
 
-print("\n>>> Avaliando o modelo...")
+print("\nAvaliando o modelo...")
 
 y_pred = model.predict(X_test)
 
