@@ -2,7 +2,9 @@ import cv2
 
 imagem = cv2.imread('imagem.jpg')
 
-redimensionada = cv2.resize(imagem, (800, 800))
+imagem_pb = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
+
+redimensionada = cv2.resize(imagem_pb, (800, 800))
 
 cv2.imshow('Imagem', redimensionada)
 
