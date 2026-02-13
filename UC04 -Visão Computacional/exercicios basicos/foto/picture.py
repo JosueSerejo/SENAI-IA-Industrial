@@ -7,14 +7,13 @@ imagem = cv2.resize(imagem, (800, 800))
 # Converte para Cinza
 imagem_pb = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
 
-# APLICA O BLUR (Suavização)
+# APLICA O BLUR
 blur = cv2.GaussianBlur(imagem_pb, (5, 5), 0)
 
-# APLICA O EDGES (Detecção de bordas no blur)
+# APLICA O EDGES
 edges = cv2.Canny(blur, 50, 150)
 
-# Gera a Máscara (Usando o BLUR para melhor resultado)
-# O uso do 'blur' aqui ajuda o Otsu a ser mais preciso
+# Gera a Máscara
 _, mask = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
 # Aplica a máscara na imagem
